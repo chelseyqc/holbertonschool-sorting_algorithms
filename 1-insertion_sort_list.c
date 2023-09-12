@@ -48,12 +48,27 @@ void insertion_sort_list(listint_t **list)
 	while (key != NULL)
 	{
 		current = key;
+		prev = key->prev;
 
-		while (current->prev != NULL && current->prev->n > current->n)
+		while (prev != NULL && prev->n > current->n)
 		{
+			prev->next = current->next;
+			if (current->next != NULL)
+			{
+				current->next->prev = prev;
+			}
+			current->prev = prev->prev;
+			current->next = prev;
+			if (prev->prev != NULL)
+			{
+				prev->prev->next = current;
+			}
+			else
+			{
+				*list = current;
+			}
+			prev->prev = current;
 			prev = current->prev;
-			insert_sorted(list, prev, current);
-			current = prev;
 		}
 		key = key->next;
 		print_list(*list);
