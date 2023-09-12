@@ -16,6 +16,10 @@ void bubble_sort(int *array, size_t size)
 
 	outer_index = 0;
 
+	if (array == NULL)
+	{
+		return;
+	}
 	/* iterates over array except the last */
 	while (outer_index < size - 1)
 	{
