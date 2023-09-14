@@ -61,7 +61,7 @@ int partition(int *array, int low, int high, size_t size)
 * rec_sort - sorts an array of integers with recursion
 * @array: name of array
 * @low: lowest's index
-* @high - highest's index
+* @high: highest's index
 * @size: the size of the array
 *
 * Return: void
